@@ -1,7 +1,7 @@
-package com.scaler.bookmyshowsep23.services;
+package com.bookmyshow.bookmyshow.services;
 
-import com.scaler.bookmyshowsep23.models.User;
-import com.scaler.bookmyshowsep23.repositories.UserRepository;
+import com.bookmyshow.bookmyshow.models.User;
+import com.bookmyshow.bookmyshow.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

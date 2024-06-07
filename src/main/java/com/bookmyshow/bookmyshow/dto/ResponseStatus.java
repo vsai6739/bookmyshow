@@ -1,4 +1,4 @@
-package com.scaler.bookmyshowsep23.dto;
+package com.bookmyshow.bookmyshow.dto;
 
 public enum ResponseStatus {
     SUCCESS,

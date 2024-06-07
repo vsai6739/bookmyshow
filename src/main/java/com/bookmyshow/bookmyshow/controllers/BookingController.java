@@ -1,10 +1,11 @@
-package com.scaler.bookmyshowsep23.controllers;
+package com.bookmyshow.bookmyshow.controllers;
 
-import com.scaler.bookmyshowsep23.dto.BookMovieRequestDto;
-import com.scaler.bookmyshowsep23.dto.BookMovieResponseDto;
-import com.scaler.bookmyshowsep23.dto.ResponseStatus;
-import com.scaler.bookmyshowsep23.models.Booking;
-import com.scaler.bookmyshowsep23.services.BookingService;
+
+import com.bookmyshow.bookmyshow.dto.BookMovieRequestDto;
+import com.bookmyshow.bookmyshow.dto.BookMovieResponseDto;
+import com.bookmyshow.bookmyshow.dto.ResponseStatus;
+import com.bookmyshow.bookmyshow.models.Booking;
+import com.bookmyshow.bookmyshow.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

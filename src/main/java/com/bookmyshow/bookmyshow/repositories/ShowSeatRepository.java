@@ -1,6 +1,6 @@
-package com.scaler.bookmyshowsep23.repositories;
+package com.bookmyshow.bookmyshow.repositories;
 
-import com.scaler.bookmyshowsep23.models.ShowSeat;
+import com.bookmyshow.bookmyshow.models.ShowSeat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

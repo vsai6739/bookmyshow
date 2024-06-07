@@ -1,18 +1,16 @@
-package com.scaler.bookmyshowsep23.models;
+package com.bookmyshow.bookmyshow.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
 @Getter
 @Setter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)  // This listens to the audit events
 public class BaseModel {
 
     @Id

@@ -1,6 +1,5 @@
-package com.scaler.bookmyshowsep23.dto;
+package com.bookmyshow.bookmyshow.dto;
 
-import com.scaler.bookmyshowsep23.models.User;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,4 +1,10 @@
-package com.scaler.bookmyshowsep23.models;
+package com.bookmyshow.bookmyshow.models;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 
 public enum BookingStatus {
     CONFIRMED,

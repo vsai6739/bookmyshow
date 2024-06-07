@@ -1,8 +1,8 @@
-package com.scaler.bookmyshowsep23.controllers;
+package com.bookmyshow.bookmyshow.controllers;
 
-import com.scaler.bookmyshowsep23.dto.*;
-import com.scaler.bookmyshowsep23.models.User;
-import com.scaler.bookmyshowsep23.services.UserService;
+import com.bookmyshow.bookmyshow.dto.*;
+import com.bookmyshow.bookmyshow.models.User;
+import com.bookmyshow.bookmyshow.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

@@ -1,9 +1,9 @@
-package com.scaler.bookmyshowsep23.services;
+package com.bookmyshow.bookmyshow.services;
 
-import com.scaler.bookmyshowsep23.models.Show;
-import com.scaler.bookmyshowsep23.models.ShowSeat;
-import com.scaler.bookmyshowsep23.models.ShowSeatType;
-import com.scaler.bookmyshowsep23.repositories.ShowSeatTypeRepository;
+import com.bookmyshow.bookmyshow.models.Show;
+import com.bookmyshow.bookmyshow.models.ShowSeat;
+import com.bookmyshow.bookmyshow.models.ShowSeatType;
+import com.bookmyshow.bookmyshow.repositories.ShowSeatTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,14 +1,12 @@
-package com.scaler.bookmyshowsep23.services;
+package com.bookmyshow.bookmyshow.services;
 
-import com.scaler.bookmyshowsep23.models.*;
-import com.scaler.bookmyshowsep23.repositories.BookingRepository;
-import com.scaler.bookmyshowsep23.repositories.ShowRepository;
-import com.scaler.bookmyshowsep23.repositories.ShowSeatRepository;
-import com.scaler.bookmyshowsep23.repositories.UserRepository;
+import com.bookmyshow.bookmyshow.models.*;
+import com.bookmyshow.bookmyshow.repositories.BookingRepository;
+import com.bookmyshow.bookmyshow.repositories.ShowRepository;
+import com.bookmyshow.bookmyshow.repositories.ShowSeatRepository;
+import com.bookmyshow.bookmyshow.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -39,7 +37,6 @@ public class BookingService {
         this.priceCalculatorService = priceCalculatorService;
     }
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Booking bookMovie(List<Long> showSeatIds, Long userId, Long showId) {
 
         /*

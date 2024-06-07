@@ -1,4 +1,4 @@
-package com.scaler.bookmyshowsep23.models;
+package com.bookmyshow.bookmyshow.models;
 
 public enum ShowSeatStatus {
     AVAILABLE,
