@@ -6,14 +6,13 @@ import com.bookmyshow.bookmyshow.repositories.ShowRepository;
 import com.bookmyshow.bookmyshow.repositories.ShowSeatRepository;
 import com.bookmyshow.bookmyshow.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class BookingService {
@@ -23,37 +22,37 @@ public class BookingService {
     private ShowSeatRepository showSeatRepository;
     private BookingRepository bookingRepository;
     private PriceCalculatorService priceCalculatorService;
+    private RedisTemplate<String, Objects> redisTemplate;
 
     @Autowired
     public BookingService(UserRepository userRepository,
                           ShowRepository showRepository,
                           ShowSeatRepository showSeatRepository,
                           BookingRepository bookingRepository,
-                          PriceCalculatorService priceCalculatorService) {
+                          PriceCalculatorService priceCalculatorService,
+                          RedisTemplate redisTemplate) {
         this.userRepository = userRepository;
         this.showRepository = showRepository;
         this.showSeatRepository = showSeatRepository;
         this.bookingRepository = bookingRepository;
         this.priceCalculatorService = priceCalculatorService;
+        this.redisTemplate = redisTemplate;
     }
+    @Transactional(isolation = Isolation.SERIALIZABLE)
 
     public Booking bookMovie(List<Long> showSeatIds, Long userId, Long showId) {
 
         /*
-            ----------------- For today, start transaction ---------------
             1. Get the user using the userId
             2. Get the show using the showId
-            ----------------- Take Lock ---------------
             3. Fetch the ShowSeats using the showSeatIds
             4. Check if all the seats are available or not
             5. If not, throw error
             6. If yes, mark the show seats status as LOCKED
             7. Save the updated show seats in the database
-            ----------------- Release Lock ---------------
             8. Create a booking object
             9. Save the booking object
             10. Return the saved booking object
-            ----------------- end  ---------------
         */
 
         // Step 1
@@ -67,13 +66,18 @@ public class BookingService {
 
 
         // Step 2
+        Show redisShow = (Show) redisTemplate.opsForHash().get("SHOW","SHOW_"+showId);
+        Show bookedShow;
+        if(redisShow!=null){
+            bookedShow = redisShow;
+        }
         Optional<Show> showOptional = showRepository.findById(showId);
 
         if (showOptional.isEmpty()) {
             throw new RuntimeException("Show not found");
         }
 
-        Show bookedShow = showOptional.get();
+        bookedShow = showOptional.get();
 
         // Step 3
         List<ShowSeat> showSeats = showSeatRepository.findAllById(showSeatIds);

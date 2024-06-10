@@ -1,6 +1,4 @@
 package com.bookmyshow.bookmyshow.controllers;
-
-
 import com.bookmyshow.bookmyshow.dto.BookMovieRequestDto;
 import com.bookmyshow.bookmyshow.dto.BookMovieResponseDto;
 import com.bookmyshow.bookmyshow.dto.ResponseStatus;
@@ -9,7 +7,7 @@ import com.bookmyshow.bookmyshow.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-@Controller // Just a tag, using which Spring get to know that it has to create an object for it in the spring registry
+@Controller
 public class BookingController {
 
     private BookingService bookingService;
